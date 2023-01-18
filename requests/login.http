@@ -1,0 +1,8 @@
+### get tyeams
+POST http://localhost:9000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "user": "eacifue",
+    "password": "123456789"
+}

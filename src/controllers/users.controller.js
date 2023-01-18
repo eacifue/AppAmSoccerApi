@@ -17,15 +17,6 @@ export const getUsers = async(req, res) => {
      res.json(rows[0])
   }
 
-  export const Login = async (req, res) => {
-    const {user, password} = req.body
-    const [rows] = await dbOptions.query('select user from users where user = ? and password = ?',[user, md5(password)])
-    if(rows.length <= 0) return res.status(404).json({
-        message: "User  or Password don't exist"
-    })
-    res.json(rows[0])
- }
-
  export const createUser = async (req, res) => {
     const {user, password, IdRole} = req.body
     const [rows] = await dbOptions.query('insert into users (user, password, IdRole) VALUES (?, ?, ?)', [user, md5(password), IdRole])
