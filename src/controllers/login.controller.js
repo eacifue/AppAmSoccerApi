@@ -8,5 +8,9 @@ export const Login = async (req, res) => {
     if(rows.length <= 0) return res.status(404).json({
         message: "User  or Password don't exist"
     })
-    res.json(rows[0])
+    res.status(200).json({
+        message: "OK", 
+        data: rows[0]
+    })
+    //res.json(rows[0])
  }
