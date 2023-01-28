@@ -8,14 +8,14 @@ export const getTeams = async(req, res) => {
 }
 
 //get team by id
-export const getTeam = async (req, res) => {
+// export const getTeam = async (req, res) => {
     
-    const [rows] = await dbOptions.query('select * from teams where Id = ?',[req.params.id])
-    if(rows.length <= 0) return res.status(404).json({
-        message: 'Team not found'
-    })
-    res.json(rows[0])
- }
+//     const [rows] = await dbOptions.query('select * from teams where Id = ?',[req.params.id])
+//     if(rows.length <= 0) return res.status(404).json({
+//         message: 'Team not found'
+//     })
+//     res.json(rows[0])
+//  }
 
  //create a team
 export const createTeam = async (req, res) => {
@@ -23,3 +23,11 @@ export const createTeam = async (req, res) => {
     const [rows] = await dbOptions.query('insert into teams (IdTournaments, Name) VALUES (?, ?)', [IdTournaments, Name])
     res.send({ rows })
  }
+
+
+ //get Teams by Tournaments
+export const getTeamsByTournaments = async(req, res) => {
+    const [rows] = await dbOptions.query('call TeamsByTournament (?)', [req.params.id])
+    res.json(rows)
+ }
+ 

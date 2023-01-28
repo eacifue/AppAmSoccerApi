@@ -6,3 +6,7 @@ GET http://localhost:9000/api/teams/90 HTTP/1.1
 
 ### get tournaments
 GET http://localhost:9000/torneos HTTP/1.1
+
+
+### get team by id
+GET http://localhost:9000/api/teams/2 HTTP/1.1
